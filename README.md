@@ -3,7 +3,7 @@
 ## Freecodecamp
 
 Finished certifications is checked:
-- [ ] [Responsive Web Design](https://www.freecodecamp.org/learn/2022/responsive-web-design/)
+- [x] [Responsive Web Design](https://www.freecodecamp.org/learn/2022/responsive-web-design/)
 - [ ] [(Legacy) Responsive Web Design](https://www.freecodecamp.org/learn/responsive-web-design/)
 - [ ] [JavaScript Algorithms and Data Structures](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/)
 - [ ] [Front End Development](https://www.freecodecamp.org/learn/front-end-development-libraries/)

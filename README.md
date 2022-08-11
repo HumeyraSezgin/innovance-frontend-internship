@@ -11,7 +11,7 @@ Finished certifications is checked:
 ## Reactjs.org
 
 Tic-tac-toe tutorial game is built and its source code [here](./folder/). Implementation goals:
- - [ ] With class components
+ - [X] With class components
  - [ ] With functional components + hooks
  - [ ] With addition Context API for state management
  - [ ] With addition Typescript

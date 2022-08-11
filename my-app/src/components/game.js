@@ -1,6 +1,6 @@
 import React from 'react';
 import Board from './board.js';
-import calculateWinner from '/Users/hmyra/Documents/GitHub/innovance-frontend-internship/my-app/src/utils.js';
+import calculateWinner from '../utils.js';
 
 class Game extends React.Component {
     constructor(props){

@@ -10,7 +10,7 @@ Finished certifications is checked:
 
 ## Reactjs.org
 
-Tic-tac-toe tutorial game is built and its source code [here](TODO:Add relative path link from the repository). Implementation goals:
+Tic-tac-toe tutorial game is built and its source code [./my-app/](TODO:Add relative path link from the repository). Implementation goals:
  - [ ] With class components
  - [ ] With functional components + hooks
  - [ ] With addition Context API for state management

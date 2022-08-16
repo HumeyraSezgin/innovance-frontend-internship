@@ -7,10 +7,16 @@ body {
     padding-left: 30px;
   }
   
-  .board-row:after {
+  .board {
     clear: both;
     content: "";
     display: table;
+    border: 0;
+    background: #fff;
+    width: 99px;
+    height: 99px;
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
   }
   
   .status {

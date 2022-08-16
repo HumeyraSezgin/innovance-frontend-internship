@@ -10,7 +10,7 @@ Finished certifications is checked:
 
 ## Reactjs.org
 
-Tic-tac-toe tutorial game is built and its source code [source kod](https://github.com/HumeyraSezgin/innovance-frontend-internship/tree/main/my-app). Implementation goals:
+Tic-tac-toe tutorial game is built and its source code [here](./my-app/). Implementation goals:
  - [X] With class components
  - [X] With functional components + hooks
  - [ ] With addition Context API for state management

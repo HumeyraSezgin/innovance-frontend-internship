@@ -1,36 +1,43 @@
-import React, { useReducer } from "react";
-import calculateWinner from "../utils";
-import gameReducer from "../gameReducer";
+import React, { useState } from "react";
+import calculateWinner from "../utils/util";
+import Board from "./board";
+import Moves from './moves'
 
-export const GameContext = React.createContext();
-
-const Game = (props) => {
-  const initialData = {
-    history: [{ squares: Array(9).fill(null) }],
-    stepNumber: 0,
-    xIsNext: true,
-  };
-  const [games, dispatch] = useReducer(gameReducer, initialData);
-  const nextPlayer = games.xIsNext ? "X" : "O";
-  const updateHistory = games.history;
-  const current = updateHistory[updateHistory.length - 1];
-  const winner = calculateWinner(current.squares);
+const Game = () => {
+  const [history, setHistory] = useState([Array(9).fill(null)]);
+  const [stepNumber, setStepNumber] = useState(0);
+  const [xIsNext, setXisNext] = useState(true);
+  const winner = calculateWinner(history[stepNumber]);
+  const nextPlayer = xIsNext ? "X" : "O";
 
   const handleClick = (i) => {
-    const historyPoint = games.history.slice(0, games.stepNumber + 1);
-    const current = historyPoint[games.stepNumber];
-    const squares = current.squares.slice();
-    if (calculateWinner(squares) || squares[i]) return;
+    const historyPoint = history.slice(0, stepNumber + 1);
+    const current = historyPoint[stepNumber];
+    const squares = [...current];
+    if (winner || squares[i]) return;
     squares[i] = nextPlayer;
-    dispatch({ type: "ADD_HISTORY", payload: historyPoint.concat([{ squares: squares }]) });
-    dispatch({ type: "CHANGE_STEP_NUMBER", payload: historyPoint.length });
-    dispatch({ type: "CHANGE_X_IS_NEXT", payload: !games.xIsNext });
+    setHistory([...historyPoint, squares]);
+    setStepNumber(historyPoint.length);
+    setXisNext(!xIsNext);
   };
 
   return (
-    <GameContext.Provider value={{ winner, games, updateHistory, current, handleClick, dispatch }}>
-      {props.children}
-    </GameContext.Provider>
+    <>
+      <div className="game">
+        <div className="game-board">
+          <Board squares={history[stepNumber]} onClick={handleClick} />
+        </div>
+        <div className="game-info">
+          <h3>History</h3>
+          <Moves
+            history={history}
+            setStepNumber={setStepNumber}
+            setXisNext={setXisNext}
+          />
+          <h3>{winner ? "Winner: " + winner : "Next Player: " + nextPlayer}</h3>
+        </div>
+      </div>
+    </>
   );
 };
 

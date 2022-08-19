@@ -12,13 +12,13 @@ export function GameProvider({ children }) {
     return <GameContext.Provider value={contextValue}>{children}</GameContext.Provider>
 };
 
-export const useHandleClick = () => {
+export const usePlayATurn = () => {
     const context = useContext(GameContext);
     if (context === undefined) {
-        throw new Error('useCount must be used within a GameProvider')
+        throw new Error('usePlayATurn must be used within a GameProvider')
     };
     const { xIsNext, stepNumber, history, setHistory, setStepNumber, setXisNext } = context;
-    const handleClick = (i) => {
+    const playATurn = (i) => {
         const historyPoint = history.slice(0, stepNumber + 1);
         const current = historyPoint[stepNumber];
         const squares = [...current];
@@ -29,13 +29,13 @@ export const useHandleClick = () => {
         setStepNumber(historyPoint.length);
         setXisNext(!xIsNext);
     };
-    return handleClick;
+    return playATurn;
 }
 
 export const useHistory = () => {
     const context = useContext(GameContext);
     if (context === undefined) {
-        throw new Error('useCount must be used within a GameProvider')
+        throw new Error('useHistory must be used within a GameProvider')
     };
     return context.history;
 };

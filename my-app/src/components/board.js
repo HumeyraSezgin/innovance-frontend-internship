@@ -1,19 +1,17 @@
 import React, { useContext } from 'react';
-import { GameContext, useHandleClick, useHistory } from '../context/gameContext.js';
+import { GameContext, usePlayATurn, useHistory } from '../context/gameContext.js';
 import Square from './square.js';
 
 const Board = () => {
-  const handleClick = useHandleClick();
+  const playATurn = usePlayATurn();
   const history = useHistory();
   const { stepNumber } = useContext(GameContext);
   return (
-    <>
-      <div className="board">
-        {history[stepNumber].map((square, i) => (
-          <Square key={i} value={square} onClick={() => handleClick(i)} />
-        ))}
-      </div>
-    </>
+    <div className="board">
+      {history[stepNumber].map((square, i) => (
+        <Square key={i} value={square} onClick={() => playATurn(i)} />
+      ))}
+    </div>
   )
 };
 export default Board;

@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { GameContext, useHistory } from '../context/gameContext';
 
-const Moves = ({ history, setXisNext, setStepNumber }) => {
+const Moves = () => {
+    const history = useHistory();
+    const { setStepNumber, setXisNext } = useContext(GameContext);
     const jumpTo = (step) => {
         setStepNumber(step);
         setXisNext(step % 2 === 0);

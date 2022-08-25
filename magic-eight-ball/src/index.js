@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "./styles.css";
 import questionAnswer from './components/questionAnswer'
+import {Title,Button,Body,H2,Input,P} from "./style"
+
 const API_ENDPOINT = 'https://yesno.wtf/api';
 
 function App() {
@@ -35,27 +37,33 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h1>Magic Eight Ball</h1>
-      <h2>Ask your question?</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          onChange={handleOnChange}
-          value={question}
-        />
-        <button type="submit">Submit</button>
-        {error ?
-          <p>You didn't ask a question</p> : null
-        }
-        {isLoaded ?
-          <>
-            {questionAnswer(item,question)}
-          </> : null
-        }
-      </form>
-    </div>
+    <Body>
+      <div className="App">
+        <Title>Magic Eight Ball</Title>
+        <H2>Ask your question?</H2>
+        <form onSubmit={handleSubmit}>
+          <div >
+            <Input
+            type="text"
+            name="name"
+            onChange={handleOnChange}
+            value={question}
+            />
+          </div>
+          <div>
+            <Button type="submit">Ask</Button>
+          </div>
+          {error ?
+            <P>You didn't ask a question</P> : null
+          }
+          {isLoaded ?
+            <>
+              {questionAnswer(item,question)}
+            </> : null
+          }
+        </form>
+      </div>
+    </Body>
   );
 }
 

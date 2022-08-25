@@ -26,7 +26,7 @@ export const Body = styled.body`
     border-right: 2px #563f46;
 `;
 
-export const H2 = styled.h2`
+export const AboutInput = styled.h2`
     font-size: 2em;
     color: #c1502e;
 `;
@@ -38,7 +38,7 @@ export const Input = styled.input`
     text-align: center;
 `;
 
-export const P = styled.p`
+export const Result = styled.p`
     color: #c1502e;
     font-weight: bold;
     font-family: Courier New;

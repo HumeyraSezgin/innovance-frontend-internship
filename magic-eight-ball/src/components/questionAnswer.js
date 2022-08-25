@@ -1,11 +1,11 @@
 import React from 'react'
-import {P} from "../style";
+import {Result} from "../style";
 const questionAnswer = (item,question) => {
     return (
         <>
-            <P>Your Question: {question}</P>
+            <Result>Your Question: {question}</Result>
             <div>
-                <P>Answer: {item.answer}</P>
+                <Result>Answer: {item.answer}</Result>
                 <img src={item.image} alt="yes-no-img" />
             </div>
             

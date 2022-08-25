@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "./styles.css";
 import questionAnswer from './components/questionAnswer'
-import {Title,Button,Body,H2,Input,P} from "./style"
+import {Title,Button,Body,AboutInput,Input,Result} from "./style"
 
 const API_ENDPOINT = 'https://yesno.wtf/api';
 
@@ -40,7 +40,7 @@ function App() {
     <Body>
       <div className="App">
         <Title>Magic Eight Ball</Title>
-        <H2>Ask your question?</H2>
+        <AboutInput>Ask your question?</AboutInput>
         <form onSubmit={handleSubmit}>
           <div >
             <Input
@@ -54,7 +54,7 @@ function App() {
             <Button type="submit">Ask</Button>
           </div>
           {error ?
-            <P>You didn't ask a question</P> : null
+            <Result>You didn't ask a question</Result> : null
           }
           {isLoaded ?
             <>

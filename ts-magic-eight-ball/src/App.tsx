@@ -59,9 +59,8 @@ function App() {
             <P>You didn't ask a question</P> : null
           }
           {isLoaded ?
-            <>
               <QuestionAnswer item={item} question={question}/>
-            </> : null
+            : null
           }
         </form>
       </div>

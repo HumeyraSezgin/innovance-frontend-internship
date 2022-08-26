@@ -1,14 +1,18 @@
 import React, { useState,ChangeEvent } from "react";
-import questionAnswer from './components/questionAnswer'
+import QuestionAnswer, {AnswerResponse} from './components/questionAnswer'
 import {Title,Button,Body,H2,Input,P} from "./style"
 
 const API_ENDPOINT = 'https://yesno.wtf/api';
 
 function App() {
   const [question, setQuestion] = useState<string>("");
-  const [item, setItem] = useState<any>("");
-  const [error, setError] = useState<Boolean>(false);
-  const [isLoaded, setIsLoaded] = useState<Boolean>(false);
+  const [item, setItem] = useState<AnswerResponse>({
+        answer: "",
+    forced: true,
+    image: ""
+  });
+  const [error, setError] = useState<boolean>(false);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   function handleOnChange(event: ChangeEvent<HTMLInputElement>) {
     setQuestion(event.target.value);
@@ -18,8 +22,6 @@ function App() {
     let response = await fetch(API_ENDPOINT);
     let responseData = await response.json();
     setItem(responseData);
-    console.log("----------------------")
-    console.log(typeof(responseData))
   };
 
   function handleSubmit(event: React.SyntheticEvent) {
@@ -58,7 +60,7 @@ function App() {
           }
           {isLoaded ?
             <>
-              {questionAnswer({item,question})}
+              <QuestionAnswer item={item} question={question}/>
             </> : null
           }
         </form>

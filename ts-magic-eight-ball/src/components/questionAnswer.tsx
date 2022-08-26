@@ -1,12 +1,18 @@
 import React from 'react';
 import {P} from "../style";
 
-type questionAnswerProps = {
-    item: any;
+export type AnswerResponse = {
+    answer: string;
+    forced: boolean;
+    image: string;
+}
+
+type QuestionAnswerProps = {
+    item: AnswerResponse;
     question: string;
 }
 
-function questionAnswer ({item,question}: questionAnswerProps) {
+const QuestionAnswer =({item,question}: QuestionAnswerProps)=> {
     return (
         <>
             <P>Your Question: {question}</P>
@@ -18,4 +24,4 @@ function questionAnswer ({item,question}: questionAnswerProps) {
     )
 }
 
-export default questionAnswer;
+export default QuestionAnswer;
